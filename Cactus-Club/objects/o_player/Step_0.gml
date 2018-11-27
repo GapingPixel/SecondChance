@@ -1,0 +1,126 @@
+/// @description Insert description here
+// You can write your code in this editor
+scr_input();
+
+var hinput = right - left;
+if hinput != 0 {
+	//hspeed_ += hinput*accelation_;
+}
+scr_state_walk();
+
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_npc) and state == state.base && alarm[0] <= 0 {
+	
+	state = state.chat;
+	//instance_create_layer(view_xport[0]+134,view_yport[0]+273,"UI",o_chest);
+	//instance_create_layer(view_xport[0]+125,view_yport[0]+250,"UI",o_text);
+	scr_text("Hello, Chance",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+	//debug_text = true;
+	alarm[0] = room_speed*1;
+	o_text.page = 1;
+}
+
+if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) && !position_meeting(mouse_x, mouse_y, o_text) and state == state.chat {
+	if instance_exists(o_text) 
+		instance_destroy(o_text,false);
+		state = state.base;
+	
+}
+
+if state == state.chat {
+	if mouse_check_button_released(mb_left) && ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
+		
+		switch (o_text.page) {
+			case 0:
+			/*instance_destroy(o_text,false);
+			scr_text("la wea wnnn",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*1;
+			o_text.page = 1;*/
+			break;
+			
+			case 1:
+			instance_destroy(o_text,false);
+			scr_text("Hello, Grace. What did you have for lunch today?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*1;
+			o_text.page = 2;
+			break;
+			
+			case 2:
+			instance_destroy(o_text,false);
+			scr_text("I had tuna salad. Here try a bite.",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*1;
+			o_text.page = 3;
+			break;
+			
+			case 3:
+			instance_destroy(o_text,false);
+			scr_text("Aren't you a vegetarian, Grace?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*1;
+			o_text.page = 4;
+			break;
+			
+			case 4:
+			instance_destroy(o_text,false);
+			scr_text("I'm pescatarian, actually.",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*1;
+			o_text.page = 5;
+			break;
+		}
+	}
+}
+
+/*switch (state) {
+	
+	case state.base:
+	//scr_state_walk();
+	break;
+	
+	case state.chat:
+	/*if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) {
+	if instance_exists(o_text) 
+		instance_destroy(o_text,false);
+		state = state.base;
+	}*//*
+	break;
+
+}*/
+switch (anim) {
+	
+	case anim.idle:
+	
+	switch ( dir_ ) {
+	
+	case face_right:
+	sprite_index = spr_prot;
+	break;
+	
+	case face_left:
+	sprite_index = spr_prot_left;
+	break;
+	
+	}
+	
+	
+	break;
+	
+	case anim.walk:
+	
+	switch ( dir_ ) {
+	
+	case face_right:
+	sprite_index = spr_prot_walking;
+	break;
+	
+	case face_left:
+	sprite_index = spr_prot_walking_left;
+	break;
+	
+	}
+	break;
+	
+	
+	case anim.talk:
+	break;
+}
+
+
+
