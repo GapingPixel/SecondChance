@@ -18,16 +18,16 @@ if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_
 	alarm[0] = room_speed*1;
 	o_text.page = 1;
 }
-
-if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) && !position_meeting(mouse_x, mouse_y, o_text) and state == state.chat {
-	if instance_exists(o_text) 
-		instance_destroy(o_text,false);
-		state = state.base;
-	
+if !instance_exists(o_inventory) {	
+	if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) && !position_meeting(mouse_x, mouse_y, o_text) and state == state.chat {
+		if instance_exists(o_text) 
+			instance_destroy(o_text,false);
+			state = state.base;
+	}
 }
 
 if state == state.chat {
-	if mouse_check_button_released(mb_left) && ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
+	if mouse_check_button_released(mb_left) && !position_meeting(mouse_x,mouse_y, o_keyword) and ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
 		
 		switch (o_text.page) {
 			case 0:
@@ -40,6 +40,7 @@ if state == state.chat {
 			case 1:
 			instance_destroy(o_text,false);
 			scr_text("Hello, Grace. What did you have for lunch today?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			
 			alarm[0] = room_speed*1;
 			o_text.page = 2;
 			break;
@@ -47,12 +48,19 @@ if state == state.chat {
 			case 2:
 			instance_destroy(o_text,false);
 			scr_text("I had tuna salad. Here try a bite.",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			//draw_text(view_xport[0]+125,view_yport[0]+250,"tuna salad");   //instance_create_layer(x,y,"UI", )
+			///create_keyword("tuna salad",view_xport[0]+125,view_yport[0]+250,c_red);
+			with ( instance_create_layer(239,270, "UI",o_keyword)) {
+				sprite_index = s_tunasalad;
+				page_ = 3;
+			}
 			alarm[0] = room_speed*1;
 			o_text.page = 3;
 			break;
 			
 			case 3:
 			instance_destroy(o_text,false);
+			if instance_exists(o_keyword) then instance_destroy(o_keyword,false);
 			scr_text("Aren't you a vegetarian, Grace?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
 			alarm[0] = room_speed*1;
 			o_text.page = 4;
