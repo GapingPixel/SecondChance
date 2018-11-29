@@ -11,34 +11,34 @@ if show_inventory {
 		instance_create_layer(80,0,"UI",o_inventory); 
 	}
 		
-	switch (o_inventory.page) {
+	switch (global.inventory_page) {
 		case 1:
 		//draw_sprite(spr_inventory_pg1,0,0+80,0);
-		o_inventory.sprite_index = spr_inventory_pg1;
+		o_inventory.image_index = 0;
 		break;
 		
 		case 2:
 		//draw_sprite(spr_inventory_pg2,0,0+80,0);
-		o_inventory.sprite_index = spr_inventory_pg2;
+		o_inventory.image_index = 1;
 		break;
 		
 		case 3:
 		//draw_sprite(spr_inventory_pg3,0,0+80,0);
-		o_inventory.sprite_index = spr_inventory_pg3;
+		o_inventory.image_index = 2;
 		break;
 	}
 	
 	//22x21 Pixels, each tab selection cell
 	if mouse_check_button_released(mb_left) and (mouse_y >= 48 and mouse_y <= 68 ) and (mouse_x >= 125 and mouse_x <= 145 ) {
-		o_inventory.page = 1;	
+		global.inventory_page = 1;	
 	}
 
 	if mouse_check_button_released(mb_left) and (mouse_y >= 72 and mouse_y <= 92 ) and (mouse_x >= 125 and mouse_x <= 145 ) {
-		o_inventory.page = 2;	
+		global.inventory_page = 2;	
 	}
 
 	if mouse_check_button_released(mb_left) and (mouse_y >= 95 and mouse_y <= 115 ) and (mouse_x >= 125 and mouse_x <= 145 ) {
-		o_inventory.page = 3;	
+		global.inventory_page = 3;	
 	}
 	
 	//Close inventory when clicking "x"

@@ -18,8 +18,8 @@ draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_text_ext(
-	x + padding-9,
-	y + padding,
+	x + 5,//padding,
+	y + padding+4,
 	print,
 	font_size+(font_size/2),
 	maxlength
@@ -29,3 +29,5 @@ draw_text_ext(
 //draw_text(x+27,y+65,name)
 
 draw_set_alpha(1);
+
+if (!o_player.show_inventory) then instance_destroy(id,false);

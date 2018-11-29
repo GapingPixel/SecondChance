@@ -14,7 +14,6 @@ if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_
 	//instance_create_layer(view_xport[0]+134,view_yport[0]+273,"UI",o_chest);
 	//instance_create_layer(view_xport[0]+125,view_yport[0]+250,"UI",o_text);
 	scr_text("Hello, Chance",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
-	//debug_text = true;
 	alarm[0] = room_speed*1;
 	o_text.page = 1;
 }
@@ -26,8 +25,12 @@ if !instance_exists(o_inventory) {
 	}
 }
 
+if !instance_exists(o_text) { 
+	state = state.base;
+}
+
 if state == state.chat {
-	if mouse_check_button_released(mb_left) && !position_meeting(mouse_x,mouse_y, o_keyword) and ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
+	if instance_exists(o_text) and mouse_check_button_released(mb_left) && !position_meeting(mouse_x,mouse_y, o_keyword) and ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
 		
 		switch (o_text.page) {
 			case 0:
@@ -60,21 +63,35 @@ if state == state.chat {
 			
 			case 3:
 			instance_destroy(o_text,false);
+			state = state.base;
+			break;
+			
+			case 5:
+			instance_destroy(o_text,false);
 			if instance_exists(o_keyword) then instance_destroy(o_keyword,false);
 			scr_text("Aren't you a vegetarian, Grace?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
 			alarm[0] = room_speed*1;
-			o_text.page = 4;
+			o_text.page = 6;
 			break;
 			
-			case 4:
+			case 6:
 			instance_destroy(o_text,false);
 			scr_text("I'm pescatarian, actually.",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			global.grace_pescatarian = true;
 			alarm[0] = room_speed*1;
-			o_text.page = 5;
+			//o_text.page = 5;
+			o_text.page = PAGE_CIGG;
 			break;
+			
+			case PAGE_CIGG:
+			instance_destroy(o_text,false);
+			state = state.base;
+			break;
+			
 		}
 	}
 }
+
 
 /*switch (state) {
 	
@@ -121,7 +138,6 @@ switch (anim) {
 	case face_left:
 	sprite_index = spr_prot_walking_left;
 	break;
-	
 	}
 	break;
 	

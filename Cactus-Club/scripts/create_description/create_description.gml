@@ -9,7 +9,7 @@
 txt = instance_create_layer(argument2,argument3,"UI",o_description);
 with (txt)
 {
-	padding = 20;
+	padding = 16;
 	var right_padding = 3;
 	maxlength = sprite_width-right_padding; //view_get_wport(view_wport[0]);
 	text = argument0;
