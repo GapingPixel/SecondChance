@@ -6,7 +6,22 @@
     "children": [
         "97066ac5-bd86-4df9-9523-d360fe3292ef",
         "1e05d5cc-23d9-4f3b-8ecd-651eafac141d",
-        "23875a45-d076-4676-876f-d03900d6eded"
+        "23875a45-d076-4676-876f-d03900d6eded",
+        "66120a53-b2f9-459b-af44-22e07f9deaa0",
+        "7e124e4a-1642-4a92-bddc-541947133cfd",
+        "443f82aa-41bd-4fc0-b3ac-14745af4509f",
+        "eba55546-58ef-42cd-b765-082c5c577a8a",
+        "bf05d42e-60ce-4209-88df-d3cf604652ef",
+        "2a68a044-13c6-457a-9e8d-4b57655366a4",
+        "7b6d6f90-f914-4022-85ff-fd20e5511683",
+        "95d799fa-768a-4de3-bc10-678fa706916a",
+        "d3c60b36-477c-4f82-bb97-596f3e6e3975",
+        "cfeb320a-99b4-413d-8be8-6bf773ff0eb3",
+        "37157c87-1c5b-45a0-8842-e5213777d24a",
+        "6ff15873-be9d-4e1d-8328-9c158e4ca58f",
+        "c0c22ccd-efa8-48bd-a2b5-1e46d344a39c",
+        "840478c4-7c79-47fd-b786-00bb7c6b32e9",
+        "2f4aa127-9020-41ed-b0f2-f5375b1cf6bf"
     ],
     "filterType": "GMSprite",
     "folderName": "Rooms",
