@@ -67,24 +67,28 @@ if keyboard_check_pressed(vk_enter) {
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTolobby;
 		room_goto(r_FLR_01_Lobby);
+		o_player.dir_ = o_player.face_left;
 		break;
 	
 		case 2:
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTofl3hallway;
 		room_goto(r_FLR3_hallway);
+		o_player.dir_ = o_player.face_left;
 		break;
 	
 		case 3:
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTofl5hallway;
 		room_goto(r_FLR_05_Hallway);
+		o_player.dir_ = o_player.face_left;
 		break;
 	
 		case 4:
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTofl6hallway;
 		room_goto(r_FLR_06_Hallway);
+		o_player.dir_ = o_player.face_left;
 		break;
 	}
 }

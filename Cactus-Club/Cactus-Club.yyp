@@ -255,6 +255,14 @@
             }
         },
         {
+            "Key": "4539a0df-ab7f-44e5-b745-51a67a6d63e6",
+            "Value": {
+                "id": "e6c56c61-3aba-4454-92a3-420047f52f95",
+                "resourcePath": "sprites\\bg_FLR_B1_Furnace\\bg_FLR_B1_Furnace.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "45efe6bc-e8c1-4f01-9de7-7494ff5f6297",
             "Value": {
                 "id": "9611ee5b-b0f7-42ee-9c17-541786ee3c8f",
@@ -339,6 +347,14 @@
             "Value": {
                 "id": "e49e87a3-c3e3-4b9a-a2c7-9d86379638fe",
                 "resourcePath": "rooms\\r_FLR_06_Cubicles_Right\\r_FLR_06_Cubicles_Right.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "5fb53dd0-0287-46c1-9c12-0d94eb8a9384",
+            "Value": {
+                "id": "104b2223-adbd-4b76-81ef-9e0e1e0c9a14",
+                "resourcePath": "rooms\\r_FLR_B1_Furnace\\r_FLR_B1_Furnace.yy",
                 "resourceType": "GMRoom"
             }
         },
