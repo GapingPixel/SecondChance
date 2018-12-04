@@ -22,7 +22,7 @@ face_right = 0;
 face_left = 1;
 dir_ = face_right;
 
-state = state.base;
+state_ = state.base;
 
 scr_input();
 

@@ -6,7 +6,10 @@ var hinput = right - left;
 if hinput != 0 {
 	//hspeed_ += hinput*accelation_;
 }
-scr_state_walk();
+
+if (state_ = !state.chat) {
+	scr_state_walk()
+}
 
 if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_npc) and state == state.base && alarm[0] <= 0 {
 	
