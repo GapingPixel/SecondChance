@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "o_door_arrow",
     "eventList": [
-        
+        {
+            "id": "3d1d7521-f53a-4d02-bc36-71be3fb1b6c6",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "4bc1bd17-a5b7-4ed1-a5e3-4d9f8e32ba2b"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

@@ -1,6 +1,6 @@
 /// @description Description POQ
 // You can write your code in this editor
-
+/*
 if (instance_exists(o_description) and show_des !=2 ) {
 	instance_destroy(o_description,false);
 }

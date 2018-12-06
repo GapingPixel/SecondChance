@@ -31,8 +31,8 @@ draw_text_ext(
 
 draw_text(x+padding+20, y+padding*3, "Floor 1");
 draw_text(x+82,y+padding*3, "Floor 3" );
-draw_text(x+132,y+padding*3, "Floor 5" );
-draw_text(x+182,y+padding*3, "Floor 6" );
+//draw_text(x+182,y+padding*3, "Floor 5" );
+draw_text(x+132,y+padding*3, "Floor 6" );
 
 switch (select) {
 
@@ -44,18 +44,18 @@ switch (select) {
 	draw_sprite(s_arrow_select,0,x+62,y+padding*3);
 	break;
 	
+	/*case 3:
+	draw_sprite(s_arrow_select,0,x+162,y+padding*3);
+	break;*/
+	
 	case 3:
 	draw_sprite(s_arrow_select,0,x+112,y+padding*3);
-	break;
-	
-	case 4:
-	draw_sprite(s_arrow_select,0,x+162,y+padding*3);
 	break;
 }
 
 if keyboard_check_pressed(vk_left) and select >= 2 {
 	select--;
-} else if keyboard_check_pressed(vk_right) and select <= 3 {
+} else if keyboard_check_pressed(vk_right) and select <= 2 {
 	select++;
 }
 
@@ -77,14 +77,14 @@ if keyboard_check_pressed(vk_enter) {
 		o_player.dir_ = o_player.face_left;
 		break;
 	
-		case 3:
+		/*case 3:
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTofl5hallway;
 		room_goto(r_FLR_05_Hallway);
 		o_player.dir_ = o_player.face_left;
-		break;
+		break;*/
 	
-		case 4:
+		case 3:
 		o_player.persistent = true;
 		global.player_start_position = xy_ascensorTofl6hallway;
 		room_goto(r_FLR_06_Hallway);

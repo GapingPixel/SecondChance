@@ -1,6 +1,6 @@
 /// @description Description Clue 
 // You can write your code in this editor
-if (instance_exists(o_description) and show_des !=1 ) {
+/*if (instance_exists(o_description) and show_des !=1 ) {
 	instance_destroy(o_description,false);
 }
 
