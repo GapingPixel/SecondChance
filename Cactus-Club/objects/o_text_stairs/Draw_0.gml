@@ -28,9 +28,10 @@ draw_text_ext(
 	maxlength
 );
 
-draw_text(x+padding+20, y+padding*3, "Floor 5" );
-draw_text(x+82,y+padding*3, "Floor 6" );
-draw_text(x+132,y+padding*3, "Rooftop" );
+draw_text(x+padding+20, y+padding*3, "Floor 3");
+draw_text(x+82,y+padding*3, "Floor 5" );
+draw_text(x+132,y+padding*3, "Floor 6" );
+draw_text(x+172,y+padding*3, "Rooftop" );
 
 switch (select) {
 
@@ -53,7 +54,7 @@ switch (select) {
 
 if keyboard_check_pressed(vk_left) and select >= 2 {
 	select--;
-} else if keyboard_check_pressed(vk_right) and select <= 2 {
+} else if keyboard_check_pressed(vk_right) and select <= 3 {
 	select++;
 }
 
@@ -63,20 +64,30 @@ if keyboard_check_pressed(vk_enter) {
 	
 		case 1:
 		o_player.persistent = true;
-		global.player_start_position = xy_stairwellTohallway5;
-		room_goto(r_FLR_05_Hallway);
+		global.player_start_position = xy_stairwellTohallway;
+		room_goto(r_FLR3_hallway);
+		o_player.dir_ = o_player.right;
 		break;
-	
+		
 		case 2:
 		o_player.persistent = true;
-		global.player_start_position = xy_stairsTofl6hallway;
-		room_goto(r_FLR_06_Hallway);
+		global.player_start_position = xy_stairwellTohallway5;
+		room_goto(r_FLR_05_Hallway);
+		o_player.dir_ = o_player.right;
 		break;
 	
 		case 3:
 		o_player.persistent = true;
+		global.player_start_position = xy_stairsTofl6hallway;
+		room_goto(r_FLR_06_Hallway);
+		o_player.dir_ = o_player.right;
+		break;
+	
+		case 4:
+		o_player.persistent = true;
 		global.player_start_position = xy_stairwellTorooftop;
 		room_goto(r_Outside_Rooftop);
+		o_player.dir_ = o_player.left;
 		break;
 	}
 }

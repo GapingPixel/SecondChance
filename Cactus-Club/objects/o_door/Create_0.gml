@@ -3,3 +3,4 @@
 room_ = r_Chance_Office;
 start_ = noone;
 elevator_ = false;
+dir = noone;
