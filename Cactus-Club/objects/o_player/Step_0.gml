@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-scr_input();
+scr_input(global.pad[0]);
 
 var hinput = right - left;
 if hinput != 0 {

@@ -1,8 +1,8 @@
 {
-    "id": "6964d41b-1fac-46af-b851-3a929615cd13",
+    "id": "c9f01c4d-7e64-4e8e-a891-14a3acde9923",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_x_lock",
+    "name": "o_logo",
     "eventList": [
         
     ],
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "c16587c0-ef3d-415e-82d3-9ad813d8c759",
-    "visible": false
+    "spriteId": "86e2708a-2629-4534-8bb9-dd567b5f55b2",
+    "visible": true
 }

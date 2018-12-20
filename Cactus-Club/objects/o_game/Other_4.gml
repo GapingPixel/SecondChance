@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if room == r_init then room_goto_next();
+//if room == r_init then room_goto_next();
 //if room == r_Chance_Office then global.player_start_position = xy_gameStart;
 
 if instance_exists(global.player_start_position)

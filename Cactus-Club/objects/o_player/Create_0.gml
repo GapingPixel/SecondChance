@@ -24,7 +24,7 @@ dir_ = face_right;
 
 state_ = state.base;
 
-scr_input();
+scr_input(global.pad[0]);
 
 debug_text = false;
 
