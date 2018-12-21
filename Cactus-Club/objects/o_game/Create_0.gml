@@ -17,12 +17,28 @@ enum pauseoptions
 {
 	//continue_game,
 	resume,
+	options,
 	//credits,
 	quit
 }
 
-menu_color_ = make_color_rgb(247, 243, 143); //185, 248, 216
-menu_dark_color_ = make_color_rgb(126, 127, 81); //58, 173, 133
+enum pauseoptions2
+{
+	fullscreen,
+	musicvol,
+	sfxvol,
+	//credits,
+	back
+}
+
+enum pausemenu
+{
+	main,
+	options
+}
+
+menu_color_ = c_aqua; //make_color_rgb(247, 243, 143); //185, 248, 216
+menu_dark_color_ = c_black; //make_color_rgb(126, 127, 81); //58, 173, 133
 
 //option_[options.continue_game] = "Continue";
 option_[pauseoptions.resume] = "Resume";
@@ -42,3 +58,10 @@ y_ = 170;//gui_height_-390;
 paused_ = false;
 paused_sprite_ = noone;
 paused_sprite_scale = .5;
+
+
+page = menu.main;
+
+global.fullscreen = 0;
+global.vol = 1;
+show_volume = false;

@@ -1,5 +1,5 @@
 /// @description 
-display_set_gui_size(640,360);
+//display_set_gui_size(640,360);
 
 if inventory {
 	show_inventory = !show_inventory

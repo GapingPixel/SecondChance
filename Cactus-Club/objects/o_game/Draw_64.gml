@@ -6,6 +6,7 @@ draw_set_alpha(0.6);
 draw_rectangle_color(0, 0, gui_width_, gui_height_, c_black, c_black, c_black, c_black, false);
 draw_set_alpha(1);
 
+
 draw_set_halign(fa_center)
 for (var _i = 0; _i<option_length_; _i++)
 {
@@ -18,5 +19,12 @@ for (var _i = 0; _i<option_length_; _i++)
 	}
 	draw_text_transformed(x_, y_+_i*25, option_[_i], 1.5, 1.5, 0);
 }
+
+if show_volume {
+	draw_text(405,203,string(global.vol*100));
+}
+
 draw_set_color(c_white);
 draw_set_halign(fa_left);
+
+
