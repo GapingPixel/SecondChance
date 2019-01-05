@@ -602,7 +602,7 @@
             "Key": "751a1994-dd80-4fc0-b73c-0cd13bedbc23",
             "Value": {
                 "id": "048e617b-27fe-4fca-9217-730b016bcb69",
-                "resourcePath": "objects\\o_npc\\o_npc.yy",
+                "resourcePath": "objects\\o_Grace\\o_Grace.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -839,6 +839,14 @@
             }
         },
         {
+            "Key": "a06f9e6a-15e2-4d12-a03a-fbffee431404",
+            "Value": {
+                "id": "edae7f27-fa16-4c9d-b027-8a45e0d3eed9",
+                "resourcePath": "objects\\class_npc\\class_npc.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "a8ba07af-b443-4d06-af67-cd40544e23b0",
             "Value": {
                 "id": "c6b50be5-b5ca-4fc2-9b3b-1611c3b8b4c2",
@@ -895,6 +903,14 @@
             }
         },
         {
+            "Key": "b47400f1-113b-4698-9e61-9a4b88815f12",
+            "Value": {
+                "id": "3efbdade-edfe-4278-be8a-40a47c013ce9",
+                "resourcePath": "sprites\\s_dialogue_hover\\s_dialogue_hover.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b8801fec-31c4-401d-9868-e1cb4450300b",
             "Value": {
                 "id": "5518f4c3-45de-41cb-917e-0820590032a0",
@@ -932,14 +948,6 @@
                 "id": "05e7ac56-2525-40aa-9059-fad937fabd98",
                 "resourcePath": "rooms\\r_FLR_05_Hallway\\r_FLR_05_Hallway.yy",
                 "resourceType": "GMRoom"
-            }
-        },
-        {
-            "Key": "bd694d25-0c82-488f-ab1c-941d74408a9e",
-            "Value": {
-                "id": "7eb75477-3c10-4117-b781-73c81b11f925",
-                "resourcePath": "objects\\o_coop2\\o_coop2.yy",
-                "resourceType": "GMObject"
             }
         },
         {

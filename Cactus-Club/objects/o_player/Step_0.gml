@@ -348,7 +348,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion
 
 #region Grace Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_npc) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Grace) and state_ == state.base && alarm[0] <= 0 {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -442,7 +442,7 @@ if instance_exists(o_text) and mouse_check_button_released(mb_left) and mouse_y>
 
 #endregion */
 
-/*if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_npc) and state == state.base && alarm[0] <= 0 {
+/*if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Grace) and state == state.base && alarm[0] <= 0 {
 	
 	state = state.chat;
 	//instance_create_layer(view_xport[0]+134,view_yport[0]+273,"UI",o_chest);
@@ -454,7 +454,7 @@ if instance_exists(o_text) and mouse_check_button_released(mb_left) and mouse_y>
 
 
 /*if !instance_exists(o_inventory) {	
-	if mouse_check_button_pressed(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) && mouse_y < 244 and state_ == state.chat {
+	if mouse_check_button_pressed(mb_left) && !position_meeting(mouse_x, mouse_y, o_Grace) && mouse_y < 244 and state_ == state.chat {
 		if instance_exists(o_text) 
 			instance_destroy(o_text,false);
 			state_ = state.base;
@@ -469,7 +469,7 @@ if !instance_exists(o_text) {
 /*
 
 if state == state.chat {
-	if instance_exists(o_text) and mouse_check_button_released(mb_left) && !position_meeting(mouse_x,mouse_y, o_keyword) and ( position_meeting(mouse_x, mouse_y, o_npc) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
+	if instance_exists(o_text) and mouse_check_button_released(mb_left) && !position_meeting(mouse_x,mouse_y, o_keyword) and ( position_meeting(mouse_x, mouse_y, o_Grace) or position_meeting(mouse_x, mouse_y, o_text)  )  && alarm[0] <= 0 {
 		
 		switch (o_text.page) {
 			case 0:
@@ -536,7 +536,7 @@ if state == state.chat {
 	break;
 	
 	case state.chat:
-	/*if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_npc) {
+	/*if mouse_check_button_released(mb_left) && !position_meeting(mouse_x, mouse_y, o_Grace) {
 	if instance_exists(o_text) 
 		instance_destroy(o_text,false);
 		state = state.base;
