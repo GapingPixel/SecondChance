@@ -6,6 +6,13 @@ global.inventory_page = 1;
 global.grace_pescatarian = false;
 global.one_second = room_speed;
 #macro PAGE_CIGG 7
+#macro INTRO 0
+#macro EDDYSON 1
+#macro HEATHER 2
+#macro REYNOLDS 3
+#macro BIZI 4
+#macro DINA 5
+#macro GRACE 6
 
 keyboard_set_map(ord("A"), vk_left);
 keyboard_set_map(ord("D"), vk_right);

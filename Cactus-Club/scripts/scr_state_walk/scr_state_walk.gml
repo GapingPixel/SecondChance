@@ -2,15 +2,15 @@ gml_pragma("forceinline");
 
 if right {
 	hspeed_ = 4;
-	anim = anim.walk;
+	anim_ = anim.walk;
 	dir_ = face_right;
 } else if left {
 	hspeed_ = -4;
-	anim = anim.walk;
+	anim_ = anim.walk;
 	dir_ = face_left;
 } else {
 	hspeed_ = 0;
-	anim = anim.idle;
+	anim_ = anim.idle;
 }
 
 if !place_meeting(x,y+1, o_solid) {

@@ -53,10 +53,10 @@ if o_input.select_
 	{
 		case options.continue_game:
 			show_debug_message("Continue");
-			room_goto(r_Chance_Office);
+			room_goto(r_Outside_Lobby);
 			break;
 		case options.new_game:
-			room_goto(r_Chance_Office); //Select to start at 
+			room_goto(r_Outside_Lobby); //Select to start at 
 			//room_goto(r_protodung);
 			break;
 		/*case options.credits:

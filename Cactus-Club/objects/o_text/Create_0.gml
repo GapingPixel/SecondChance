@@ -15,8 +15,21 @@ font_size = 12;
 padding = 0;
 character = noone;
 
-#macro CHEST_PROT s_chest_prot
-#macro CHEST_GRACE s_chest_grace
+#macro CHEST_PROT s_chest_Prot
+#macro CHEST_PROT_B s_chest_Prot_B
+#macro CHEST_GRACE s_chest_Grace
+#macro CHEST_GRACE_B s_chest_Grace_B
+#macro CHEST_EDDYSON s_chest_Eddyson
+#macro CHEST_BIZI s_chest_Bizi
+#macro CHEST_HEATHER s_chest_Heather
+#macro CHEST_LESLIE s_chest_Leslie
+#macro CHEST_COP s_chest_Cop
+#macro CHEST_DINA s_chest_Dina
+#macro CHEST_REYNOLDS s_chest_Reynolds
+
+
+
+
 
 
 //spd = 4;
