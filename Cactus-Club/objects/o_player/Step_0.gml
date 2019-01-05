@@ -79,7 +79,7 @@ if chat == INTRO {
 #region Eddyson Chat
 
 
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Eddyson) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Eddyson) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover  {
 	
 	state_ = state.chat;
 	scr_text("Hello, hello. What can I sell- er, help you with today?",0.5,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
@@ -149,7 +149,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion
 
 #region Heather Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Heather) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Heather) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -198,7 +198,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion 
 
 #region Stu Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_reynolds) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_reynolds) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -247,7 +247,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion
 
 #region Bizi Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Bizi) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Bizi) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -299,7 +299,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion
 
 #region Dina Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Dina) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Dina) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -348,7 +348,7 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 #endregion
 
 #region Grace Chat
-if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Grace) and state_ == state.base && alarm[0] <= 0 {
+if mouse_check_button_released(mb_left) && position_meeting(mouse_x, mouse_y, o_Grace) and state_ == state.base && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	skip = false;
 	alarm[0] = room_speed*1;
 	state_ = state.chat;
@@ -395,6 +395,8 @@ if instance_exists(o_text) and mouse_check_button_pressed(mb_left) and mouse_y>2
 }
 
 #endregion
+
+
 
 /*#region Reynolds Chat
 if mouse_check_button_pressed(mb_left) && position_meeting(mouse_x, mouse_y, o_Heather) and state_ == state.base && alarm[0] <= 0 {

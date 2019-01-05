@@ -4,7 +4,7 @@
 x=mouse_x;
 y=mouse_y;
 
-if position_meeting(x,y,class_npc) and diag {
+if position_meeting(x,y,diag) {
 	cursor_sprite  = s_dialogue_hover;
 } else {
 	cursor_sprite  = s_cursor;

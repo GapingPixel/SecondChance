@@ -3,8 +3,21 @@
 with instance_nearest(o_player.x,o_player.y, class_npc) {
 
 	if distance_to_object(o_player) <= 24 and o_player.state_ == state.base {
-		o_cursor.diag = true;
+		o_cursor.diag = id;
 	} else {
-		o_cursor.diag = false;
+		o_cursor.diag = noone;
 	}
+}
+
+with instance_nearest(o_player.x,o_player.y, class_npc) {
+if o_player.state_ == state.chat and o_player.chat != INTRO {
+
+	if o_player.x < x {
+		image_xscale = -1;
+	} else {
+		image_xscale = 1;
+	}
+} else {
+	image_xscale = 1;
+}
 }
