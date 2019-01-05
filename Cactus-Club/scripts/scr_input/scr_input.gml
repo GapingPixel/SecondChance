@@ -2,6 +2,7 @@
 
 //argument0 = global.pad[0];
 ///Put here all the Inputs!
+
 if max ( keyboard_check(vk_right), keyboard_check(vk_left), keyboard_check(vk_up), keyboard_check(vk_down), 
 keyboard_check_pressed(vk_right), keyboard_check_pressed(vk_left),  keyboard_check_pressed(vk_up),  
 keyboard_check_pressed(vk_down), mouse_check_button_pressed(mb_left), keyboard_check_pressed(vk_space), 
