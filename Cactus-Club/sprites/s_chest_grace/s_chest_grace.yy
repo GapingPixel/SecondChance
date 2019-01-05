@@ -2,7 +2,7 @@
     "id": "815d87af-b04b-4ba4-a01b-50296158bfec",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "s_chest_Grace",
+    "name": "s_chest_grace",
     "For3D": false,
     "HTile": false,
     "VTile": false,

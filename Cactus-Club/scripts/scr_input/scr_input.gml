@@ -45,7 +45,7 @@ switch (global.coop) {
 		xdir_ = mouse_x;
 		ydir_ = mouse_y;
 		pause_pressed_ = keyboard_check_pressed(vk_escape);
-		select_ = max(mouse_check_button_released(mb_left),keyboard_check_released(vk_space),keyboard_check_released(vk_enter));
+		select_ = max(mouse_check_button_pressed(mb_left),keyboard_check_pressed(vk_space),keyboard_check_pressed(vk_enter));
 		respawn_ = mouse_check_button_pressed(mb_left);
 		dialog_next_ = mouse_check_button_released(mb_left);
 		break;
