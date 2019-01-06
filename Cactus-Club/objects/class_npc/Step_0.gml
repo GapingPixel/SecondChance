@@ -17,6 +17,18 @@ if o_player.state_ == state.chat and o_player.chat != INTRO {
 	} else {
 		image_xscale = 1;
 	}
+	
+	if x > o_player.x {
+		if o_player.dir_ == o_player.face_left {
+			o_player.dir_ = o_player.face_right;
+		}
+	} else if x < o_player.x {
+		if o_player.dir_ == o_player.face_right {
+			o_player.dir_ = o_player.face_left;
+		}
+	}
+	
+	
 } else {
 	image_xscale = 1;
 }
