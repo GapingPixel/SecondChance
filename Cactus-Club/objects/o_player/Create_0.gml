@@ -11,12 +11,14 @@ enum state {
 	base = 0,
 	action = 1,
 	chat = 2,
+	idle = 3
 }
 
 enum anim {
 	idle = 0,
 	walk = 1,
 	talk = 2,
+	sleep = 3
 }
 
 face_right = 0;

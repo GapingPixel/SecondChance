@@ -5,12 +5,24 @@ scr_input(global.pad[0]);
 
 var hinput = right - left;
 if hinput != 0 {
+	//alarm[3] = room_speed*4;
 	//hspeed_ += hinput*accelation_;
 }
 
 if (state_ == state.base) {
 	scr_state_walk()
+	
+	if alarm[3] == -1 {
+		alarm[3] = room_speed*3;	
+	}
 }
+
+if state_ == state.idle {
+	if right or left {
+		state_ = state.base;
+	}
+}
+
 
 #region Intro Chat
 if chat == INTRO {
@@ -463,9 +475,9 @@ if instance_exists(o_text) and mouse_check_button_released(mb_left) and mouse_y>
 	}
 }*/
 
-if !instance_exists(o_text) { 
+if !instance_exists(o_text) and state_ == state.base { 
 	state_ = state.base;
-} else {
+} else if instance_exists(o_text) {
 	state_ = state.chat;
 }
 /*
@@ -551,6 +563,21 @@ if state == state.chat {
 
 switch state_ {
 
+	case state.idle:
+	anim_ = anim.sleep;
+	switch ( dir_ ) {
+	
+			case face_right:
+			sprite_index = s_prot_idle_anim_right;
+			break;
+	
+			case face_left:
+			sprite_index = s_prot_idle_anim_left;
+			break;
+	
+	}
+	break;
+	
 	case state.base:
 
 	switch (anim_) {

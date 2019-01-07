@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "168d1ef7-6bf1-44a2-ab71-e70c2d38bad4",
+            "Value": {
+                "id": "90780c61-3681-41d2-b51c-17ae07dd1006",
+                "resourcePath": "sprites\\s_prot_idle_anim_left\\s_prot_idle_anim_left.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "18a2407a-8d83-49fa-ae02-a9f2aecc825b",
             "Value": {
                 "id": "b4a9d0ab-e1c6-4b94-b42c-ff962ca4eb46",
@@ -1036,6 +1044,14 @@
                 "id": "6091c3d0-f6ea-4f32-8a89-14f6581f5ef0",
                 "resourcePath": "objects\\o_clue\\o_clue.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c55e31e1-0a9c-4348-9165-fdeb7adca462",
+            "Value": {
+                "id": "d4da3dc8-f5a4-467f-8f0f-d397b47d122b",
+                "resourcePath": "sprites\\s_prot_idle_anim_right\\s_prot_idle_anim_right.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
