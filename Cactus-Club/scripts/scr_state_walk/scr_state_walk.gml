@@ -1,10 +1,10 @@
 gml_pragma("forceinline");
 
-if right {
+if right and !left {
 	hspeed_ = 4;
 	anim_ = anim.walk;
 	dir_ = face_right;
-} else if left {
+} else if left and !right {
 	hspeed_ = -4;
 	anim_ = anim.walk;
 	dir_ = face_left;
