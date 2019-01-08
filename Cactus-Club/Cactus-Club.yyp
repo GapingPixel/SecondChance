@@ -351,6 +351,14 @@
             }
         },
         {
+            "Key": "4190a02c-f751-4d92-b7e9-148a959b88b5",
+            "Value": {
+                "id": "488d088a-0343-45d7-ba15-aa26ff31c03a",
+                "resourcePath": "sprites\\spr_prot_walking\\spr_prot_walking.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "443f82aa-41bd-4fc0-b3ac-14745af4509f",
             "Value": {
                 "id": "8c54c86d-ebac-469e-9577-0de2177860bd",
@@ -1055,6 +1063,14 @@
             }
         },
         {
+            "Key": "c7b1ced0-f96e-4a67-961c-534a676c5fb1",
+            "Value": {
+                "id": "9f30fd15-adec-412b-83d2-6aabc9b10ccb",
+                "resourcePath": "sprites\\spr_prot\\spr_prot.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c86ce4ae-b9fb-4b80-a90b-737d8762b733",
             "Value": {
                 "id": "325fa8f6-c20e-4ee2-a30d-ce33eb6091df",
@@ -1076,14 +1092,6 @@
                 "id": "2304e07f-0143-4675-954b-af00bf30691a",
                 "resourcePath": "objects\\o_logo\\o_logo.yy",
                 "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "cb5ae3a5-d097-4e7a-9521-491a8cad48e2",
-            "Value": {
-                "id": "b8b08938-bd74-4d18-87ef-011dc2621419",
-                "resourcePath": "sprites\\spr_prot_walking\\spr_prot_walking.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
@@ -1348,14 +1356,6 @@
                 "id": "70504926-ab91-4d1f-abe2-7b284040f0ad",
                 "resourcePath": "scripts\\scr_text\\scr_text.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "fc7af487-f6c9-43c5-9008-c11745a36eee",
-            "Value": {
-                "id": "c4eeb318-a6c8-4097-9288-675de0ee19aa",
-                "resourcePath": "sprites\\spr_prot\\spr_prot.yy",
-                "resourceType": "GMSprite"
             }
         },
         {
