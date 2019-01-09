@@ -2,7 +2,7 @@
 // You can write your code in this editor
 with instance_nearest(o_player.x,o_player.y, class_npc) {
 
-	if distance_to_object(o_player) <= 24 and o_player.state_ == state.base {
+	if distance_to_object(o_player) <= 24 and (o_player.state_ == state.base or o_player.state_ == state.idle) {
 		o_cursor.diag = id;
 	} else {
 		o_cursor.diag = noone;

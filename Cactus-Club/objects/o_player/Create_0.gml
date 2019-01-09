@@ -42,5 +42,4 @@ anim_ = anim.idle;
 
 skip = false;
 
-
 	

@@ -12,7 +12,16 @@
         "6226a92f-8eb0-4b6d-aa5e-b97a6bd33b36",
         "b29d75aa-7c75-421f-80d6-ce0d710be9b4",
         "d376fc43-8125-49e0-8de8-89187b6bbaa9",
-        "6be9d878-58b1-4291-81f1-4716d882355e"
+        "6be9d878-58b1-4291-81f1-4716d882355e",
+        "d63dfc9d-a0a1-4b73-b89f-e1a0c5467b81",
+        "b33661b4-efc4-41a2-a687-a5e614f00301",
+        "78182fdc-6443-4546-a059-7a02b746c347",
+        "75bcb49b-949f-4a7b-91db-5d52a3f649ae",
+        "9b1bba6c-5b5e-4125-ba08-7a9020ad3a6d",
+        "b8d63bf5-2843-4cca-b195-d9bd5ee862ab",
+        "2053d7ca-4855-4bc6-ae09-6984e2feb92b",
+        "92d653fb-fc23-4c5b-8711-8348c7358665",
+        "351b2510-8afa-4469-93af-d4a4a41cef9a"
     ],
     "filterType": "GMSprite",
     "folderName": "UI",

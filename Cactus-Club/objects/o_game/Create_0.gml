@@ -5,7 +5,7 @@ instance_create_depth(mouse_x,mouse_y,-9999,o_cursor);
 global.inventory_page = 1;
 global.grace_pescatarian = false;
 global.one_second = room_speed;
-#macro PAGE_CIGG 7
+#macro PAGE_END -1
 #macro INTRO 0
 #macro EDDYSON 1
 #macro HEATHER 2
