@@ -36,3 +36,5 @@ if place_meeting(x,y+vspeed_, o_solid) {
 }
 y += vspeed_;
 
+//Reset iddle animation wait
+alarm[3] = room_speed*3;

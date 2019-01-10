@@ -26,7 +26,7 @@ switch (global.coop) {
 		left = max(keyboard_check(vk_left), gamepad_axis_value(0,gp_axislh) < 0);
 
 		inventory = keyboard_check_pressed(ord("I"));
-		action_one = keyboard_check_released(ord("E"));
+		action_one = max(keyboard_check_released(ord("E")), mouse_check_button_released(mb_left) );
 		
 		right_ = keyboard_check(vk_right);
 		left_  = keyboard_check(vk_left); 
@@ -37,7 +37,7 @@ switch (global.coop) {
 		up_pressed_ = keyboard_check_pressed(vk_up);
 		down_pressed_ = keyboard_check_pressed(vk_down);
 		action_one_ = mouse_check_button(mb_left);
-		action_one_pressed_ = mouse_check_button_pressed(mb_left);
+		action_one_pressed_ = max (mouse_check_button_pressed(mb_left), keyboard_check_pressed(ord("E")));
 		action_two_pressed_ = keyboard_check_pressed(vk_space); 
 		action_three_pressed_ = mouse_check_button_pressed(mb_right);
 		action_three_released_ = mouse_check_button_released(mb_right);
