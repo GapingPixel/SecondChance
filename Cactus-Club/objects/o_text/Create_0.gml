@@ -14,7 +14,7 @@ maxlength = view_get_wport(view_wport[0]);
 font_size = 12;
 padding = 0;
 character = noone;
-
+option = noone;
 #macro CHEST_PROT s_chest_Prot
 #macro CHEST_PROT_B s_chest_Prot_B
 #macro CHEST_GRACE s_chest_Grace

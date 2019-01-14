@@ -73,3 +73,22 @@ switch (character) {
 draw_text(x+27,y+65,name)
 
 draw_set_alpha(1);
+
+if o_player.state_ == state.chat and page = PAGE_END {
+	
+	if  (device_mouse_y_to_gui(0) >= 250 and device_mouse_y_to_gui(0) <= 280 ) and (device_mouse_x_to_gui(0) >= 220 and device_mouse_x_to_gui(0) <= 270 ) {
+		draw_sprite(s_arrow_select1,0,view_xport[0]+125+87,view_yport[0]+250+12);
+		option = 1;
+	
+	} else if (device_mouse_y_to_gui(0) >= 250 and device_mouse_y_to_gui(0) <= 280 ) and (device_mouse_x_to_gui(0) >= 310 and device_mouse_x_to_gui(0) <= 390 ) {
+		draw_sprite(s_arrow_select1,0,view_xport[0]+302,view_yport[0]+250+12);
+		option = 2;
+	
+	} else if (device_mouse_y_to_gui(0) >= 250 and device_mouse_y_to_gui(0) <= 280 ) and (device_mouse_x_to_gui(0) >= 410 and device_mouse_x_to_gui(0) <= 500 ) {
+		draw_sprite(s_arrow_select1,0,view_xport[0]+422,view_yport[0]+250+12);
+		option = 3;
+	} else {
+		option = noone;
+	}
+	
+}

@@ -41,7 +41,7 @@ if chat == INTRO {
 		alarm[1] = room_speed*.5;
 	}
 	
-	if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+	if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -91,10 +91,11 @@ if chat == INTRO {
 #region Eddyson Chat
 
 
-if action_one && position_meeting(mouse_x, mouse_y, o_Eddyson) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover  {
+if action_one && position_meeting(mouse_x, mouse_y, o_Eddyson) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	
 	state_ = state.chat;
-	scr_text("Hello, hello. What can I sell- er, help you with today?",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+	scr_text("    >Talk                     >Interact                          >Nevermind        Hello, hello. What can I sell- er, help you with today?",5,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+	draw_sprite(s_arrow_select1,0,view_xport[0]+125,view_yport[0]+250);
 	alarm[2] = global.one_second*3;
 	skip = false;
 	alarm[0] = room_speed*.5;
@@ -109,8 +110,22 @@ if action_one_pressed_ and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -168,6 +183,14 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <
 			o_text.page = PAGE_END;
 			break;
 			
+			case 10:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("    >Talk                     >Interact                    >Nevermind",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
 			case PAGE_END:
 			alarm[0] = room_speed*.5;
 			o_text.page = 0;
@@ -189,7 +212,7 @@ if action_one && position_meeting(mouse_x, mouse_y, o_Heather) and ( state_ == s
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
-	scr_text("Make it quick, so I can get back to ignoring you.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+	scr_text("    >Talk                     >Interact                          >Nevermind            Make it quick, so I can get back to ignoring you.",5,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
 	alarm[2] = global.one_second*1;
 	o_text.page = PAGE_END;
 	chat = HEATHER;
@@ -202,8 +225,22 @@ if action_one_pressed_  and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip  {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -238,7 +275,7 @@ if action_one && position_meeting(mouse_x, mouse_y, o_reynolds) and ( state_ == 
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
-	scr_text("Steven Reynolds, at your service. Call me Stu.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
+	scr_text("    >Talk                     >Interact                          >Nevermind         Steven Reynolds, at your service. Call me Stu.",5,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
 	alarm[2] = global.one_second*1;
 	o_text.page = PAGE_END;
 	chat = REYNOLDS;
@@ -251,8 +288,22 @@ if action_one_pressed_  and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -287,7 +338,7 @@ if action_one && position_meeting(mouse_x, mouse_y, o_Bizi) and ( state_ == stat
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
-	scr_text("Care for apple turnover? It used to be pie but then it is turned over.",1,view_xport[0]+125,view_yport[0]+250,CHEST_BIZI);
+	scr_text("    >Talk                     >Interact                          >Nevermind          Care for apple turnover? It used to be pie but then it is turned          over.",5,view_xport[0]+125,view_yport[0]+250,CHEST_BIZI);
 	alarm[2] = global.one_second*1;
 	o_text.page = PAGE_END;
 	chat = BIZI;
@@ -300,8 +351,22 @@ if action_one_pressed_  and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -336,7 +401,7 @@ if action_one && position_meeting(mouse_x, mouse_y, o_Dina) and ( state_ == stat
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
-	scr_text("Wish they would let me inside. I just want to see if my friend is okay!",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	scr_text("    >Talk                     >Interact                          >Nevermind         Wish they would let me inside. I just want to see if my friend is okay!",5,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
 	alarm[2] = global.one_second*1;
 	o_text.page = PAGE_END;
 	chat = DINA;
@@ -349,8 +414,22 @@ if action_one_pressed_  and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
@@ -394,7 +473,7 @@ if action_one && position_meeting(mouse_x, mouse_y, o_Grace) and ( state_ == sta
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
-	scr_text("What have you found, detective?",1,view_xport[0]+125,view_yport[0]+250,choose(CHEST_GRACE,CHEST_GRACE_B));
+	scr_text("    >Talk                     >Interact                          >Nevermind            What have you found, detective?",5,view_xport[0]+125,view_yport[0]+250,choose(CHEST_GRACE,CHEST_GRACE_B));
 	alarm[2] = global.one_second*1;
 	o_text.page = PAGE_END;
 	chat = GRACE;
@@ -407,8 +486,22 @@ if action_one_pressed_  and !skip {
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
+
+if o_text.option = 1 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
 	
-if instance_exists(o_text) and action_one_pressed_ and mouse_y>245 && alarm[0] <= 0 and skip {
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
 		
 		switch (o_text.page) {
