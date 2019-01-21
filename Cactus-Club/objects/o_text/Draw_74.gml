@@ -74,7 +74,7 @@ draw_text(x+27,y+65,name)
 
 draw_set_alpha(1);
 
-if o_player.state_ == state.chat and page = PAGE_END {
+if o_player.state_ == state.chat and page == PAGE_END and o_player.first_line == true	 {
 	
 	if  (device_mouse_y_to_gui(0) >= 250 and device_mouse_y_to_gui(0) <= 280 ) and (device_mouse_x_to_gui(0) >= 220 and device_mouse_x_to_gui(0) <= 270 ) {
 		draw_sprite(s_arrow_select1,0,view_xport[0]+125+87,view_yport[0]+250+12);
@@ -92,3 +92,5 @@ if o_player.state_ == state.chat and page = PAGE_END {
 	}
 	
 }
+
+if o_player.first_line == false then option = noone;

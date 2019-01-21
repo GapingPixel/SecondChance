@@ -21,3 +21,19 @@ if instance_exists(global.player_start_position)
 	//global.player_start_position = noone;
 }
 instance_create_depth(0,0,-10000,o_fade_out);
+
+
+switch room {
+
+	case r_init:
+	audio_play_sound(mu_office,1,true);
+	break;
+	
+	case r_Outside_Lobby:
+	audio_stop_sound(mu_office);
+	if !audio_is_playing(mu_city) {
+		audio_play_sound(mu_city,1,true);
+	}
+	break;
+
+}

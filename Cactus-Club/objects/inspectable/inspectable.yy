@@ -1,14 +1,23 @@
 {
-    "id": "bdd9d4ba-e1f6-4b70-8be9-db05d9f42985",
+    "id": "d2b0d9f0-44ca-418a-b8ce-1a4f4c36ef1a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_dead_body",
+    "name": "inspectable",
     "eventList": [
-        
+        {
+            "id": "2e232ae8-28d2-4930-81be-058a3110be1d",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 3,
+            "m_owner": "d2b0d9f0-44ca-418a-b8ce-1a4f4c36ef1a"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "d2b0d9f0-44ca-418a-b8ce-1a4f4c36ef1a",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -24,6 +33,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "41813765-4d02-4fdf-b381-e75375ea7df7",
+    "spriteId": "00000000-0000-0000-0000-000000000000",
     "visible": true
 }

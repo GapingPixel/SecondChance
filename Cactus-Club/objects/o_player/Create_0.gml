@@ -6,12 +6,13 @@ hspeed_ = 4;
 vspeed_ = 4;
 gravity_ = 1;
 global.player_start_position = noone;
-
+global.wallyclue = false;
 enum state {
 	base = 0,
 	action = 1,
 	chat = 2,
-	idle = 3
+	idle = 3,
+	inspect = 4
 }
 
 enum anim {
@@ -42,4 +43,4 @@ anim_ = anim.idle;
 
 skip = false;
 
-	
+first_line = true;	

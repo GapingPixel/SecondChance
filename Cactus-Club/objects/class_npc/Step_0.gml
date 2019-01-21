@@ -9,6 +9,8 @@ with instance_nearest(o_player.x,o_player.y, class_npc) {
 	}
 }
 
+if o_player.state_ != state.chat then exit; 
+
 with instance_nearest(o_player.x,o_player.y, class_npc) {
 if o_player.state_ == state.chat and o_player.chat != INTRO {
 

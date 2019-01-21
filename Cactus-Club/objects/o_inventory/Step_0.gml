@@ -51,6 +51,7 @@ if global.inventory_page == 2 {
 		if !instance_exists(o_people_Stu)  { 
 			instance_create_layer(camera_get_view_border_x(view_camera[0])+277,camera_get_view_border_y(view_camera[0])+26,"UI",o_people_Stu);
 		}
+		break;
 		
 		case people.Bizi:
 		if !instance_exists(o_people_Bizi)  { 
@@ -77,6 +78,7 @@ if global.inventory_page == 2 {
 		if !instance_exists(o_people_Stu)  { 
 			instance_create_layer(camera_get_view_border_x(view_camera[0])+342,camera_get_view_border_y(view_camera[0])+26,"UI",o_people_Stu);
 		}
+		break;
 		
 		case people.Bizi:
 		if !instance_exists(o_people_Bizi)  { 
@@ -103,6 +105,7 @@ if global.inventory_page == 2 {
 		if !instance_exists(o_people_Stu)  { 
 			instance_create_layer(camera_get_view_border_x(view_camera[0])+407,camera_get_view_border_y(view_camera[0])+26,"UI",o_people_Stu);
 		}
+		break;
 		
 		case people.Bizi:
 		if !instance_exists(o_people_Bizi)  { 
@@ -131,7 +134,7 @@ if global.inventory_page == 2 {
 	}
 }
 
-if global.inventory_page == 3 {
+if global.inventory_page == 3 and global.wallyclue {
 	if !instance_exists(o_POQ) { 
 		instance_create_layer(camera_get_view_border_x(view_camera[0])+146,camera_get_view_border_y(view_camera[0])+24,"UI",o_POQ);
 	}

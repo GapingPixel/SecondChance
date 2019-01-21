@@ -24,6 +24,138 @@ if state_ == state.idle {
 }
 
 
+#region Wally Corpse 
+
+if action_one && position_meeting(mouse_x, mouse_y, o_dead_body) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_clue_cursor {
+	
+	state_ = state.inspect;
+	scr_text("Not much I can tell by just looking at the guy.",5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = 1;
+	chat = WALLYBODY;
+}
+
+if chat == WALLYBODY {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		
+		switch (o_text.page) {
+			
+			
+			case 1:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Try asking around to find out more about him.",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+
+
+}
+
+#endregion
+
+#region Bus Stop
+
+if action_one && position_meeting(mouse_x, mouse_y, o_bus_stop) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_clue_cursor {
+	
+	state_ = state.inspect;
+	scr_text("I should probably stay at the crime scene... though I do crave a burger.",5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = PAGE_END;
+	chat = BUSSTOP;
+}
+
+if chat == BUSSTOP {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+
+
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		
+		switch (o_text.page) {
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+}
+
+#endregion
+
+#region Gate to Alley
+
+if action_one && position_meeting(mouse_x, mouse_y, o_gateToAlley) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_clue_cursor {
+	
+	state_ = state.inspect;
+	scr_text("It's locked, and I don't have a key. ",5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = PAGE_END;
+	chat = GATE;
+}
+
+if chat == GATE {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		
+		switch (o_text.page) {
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+}
+
+#endregion
+
 #region Intro Chat
 if chat == INTRO {
 	
@@ -93,6 +225,7 @@ if chat == INTRO {
 
 if action_one && position_meeting(mouse_x, mouse_y, o_Eddyson) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	
+	first_line = true;	
 	state_ = state.chat;
 	scr_text("    >Talk                     >Interact                          >Nevermind        Hello, hello. What can I sell- er, help you with today?",5,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
 	draw_sprite(s_arrow_select1,0,view_xport[0]+125,view_yport[0]+250);
@@ -127,7 +260,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
-		
+		first_line = false;	
 		switch (o_text.page) {
 			case 0:
 			
@@ -136,7 +269,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			case 1:
 			alarm[2] = global.one_second*3;
 			instance_destroy(o_text,false);
-			scr_text("A man's wallet tells you a lot about a man. You know, how much money he carries, where he lives, his credit card information...",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			scr_text("A man's license tells you a lot about a man. You know, where he lives, his medical service number, his age, his weight and height…",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
 			alarm[0] = room_speed*.5;
 			o_text.page = 2;
 			break;
@@ -209,6 +342,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #region Heather Chat
 if action_one && position_meeting(mouse_x, mouse_y, o_Heather) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
@@ -242,7 +376,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip  {
 		skip = false;
-		
+		first_line = false;
 		switch (o_text.page) {
 			case 0:
 			
@@ -272,6 +406,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #region Stu Chat
 if action_one && position_meeting(mouse_x, mouse_y, o_reynolds) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
@@ -305,7 +440,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
-		
+		first_line = false;
 		switch (o_text.page) {
 			case 0:
 			
@@ -335,6 +470,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #region Bizi Chat
 if action_one && position_meeting(mouse_x, mouse_y, o_Bizi) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
@@ -368,7 +504,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
-		
+		first_line = false;
 		switch (o_text.page) {
 			case 0:
 			
@@ -398,6 +534,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #region Dina Chat
 if action_one && position_meeting(mouse_x, mouse_y, o_Dina) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
@@ -431,7 +568,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
-		
+		first_line = false;
 		switch (o_text.page) {
 			case 0:
 			
@@ -470,6 +607,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #region Grace Chat
 if action_one && position_meeting(mouse_x, mouse_y, o_Grace) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
 	skip = false;
 	alarm[0] = room_speed*.5;
 	state_ = state.chat;
@@ -503,7 +641,7 @@ if o_text.option = 1 and action_one {
 	
 if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
 		skip = false;
-		
+		first_line = false;
 		switch (o_text.page) {
 			case 0:
 			
@@ -537,7 +675,7 @@ if inventory and chat != INTRO {
 }
 
 if show_inventory {
-	
+	anim_ = anim.idle;
 	/*if !instance_exists(o_inventory) {
 		instance_create_layer(80,0,"UI",o_inventory); 
 	}*/
@@ -556,6 +694,13 @@ if show_inventory {
 	}
 	if action_one and (device_mouse_y_to_gui(0) >= 10 and device_mouse_y_to_gui(0)<= 25 ) and (device_mouse_x_to_gui(0) >= 500 and device_mouse_x_to_gui(0) <= 516 ) {
 		show_inventory = false;	
+		if state_ = state.chat {
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+		}
 	}
 	#endregion
 	
@@ -576,7 +721,7 @@ if show_inventory {
 		if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 		//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 			skip = false;
-			
+			first_line = false;
 			if state.chat {
 				
 				switch (chat) {
@@ -584,16 +729,16 @@ if show_inventory {
 				case EDDYSON:
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
-				scr_text("A man's wallet tells you a lot about a man. You know, how much money he carries, where he lives, his credit card information...",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+				scr_text("A man's license tells you a lot about a man. You know, where he lives, his medical service number, his age, his weight and height...",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
 				alarm[0] = room_speed*.5;
-				o_text.page = 4;
+				o_text.page = 2;
 				
 				break;
 				
 				case HEATHER:
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
-				scr_text("I know better than to rifle through somebody's wallet, even a dead somebody's. Put that thing back where it came from or so help me.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+				scr_text("What about it? He never drove anywhere, he lives down a few blocks.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
 				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
@@ -603,7 +748,7 @@ if show_inventory {
 				case REYNOLDS:
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
-				scr_text("Looks like genuine leather. Name brand too, it's not cheap stuff. Must've been quite the breadwinner, if he were married.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
+				scr_text("Are you going to drive Wally’s car? You two don’t look anything alike.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
 				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
@@ -613,7 +758,7 @@ if show_inventory {
 				case BIZI:
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
-				scr_text("You pay me to keep quiet? You are not first, Jihui. I will not bow!",1,view_xport[0]+125,view_yport[0]+250,CHEST_BIZI);
+				scr_text("I remember before people need driver license. Easy solution, drive better!",1,view_xport[0]+125,view_yport[0]+250,CHEST_BIZI);
 				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
@@ -623,7 +768,7 @@ if show_inventory {
 				case DINA:
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
-				scr_text("There's nothing in this wallet that would help me help you solve this case, sorry.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+				scr_text("It looks like it expired a couple months ago. He won’t need to renew it now.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
 				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
@@ -655,7 +800,8 @@ if show_inventory {
 		if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 		//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 			skip = false;
-			
+			first_line = false;
+			alarm[0] = room_speed*.5;
 			if state.chat {
 				
 				switch (chat) {
@@ -742,7 +888,7 @@ if show_inventory {
 			if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 				//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 				skip = false;
-				
+				first_line = false;
 				switch (chat) {
 				
 					case GRACE:
@@ -821,7 +967,8 @@ if show_inventory {
 			if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 				//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 				skip = false;
-				
+				first_line = false;
+				alarm[0] = room_speed*.5;
 				switch (chat) {
 				
 					case GRACE:
@@ -901,7 +1048,8 @@ if show_inventory {
 			if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 				//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 				skip = false;
-				
+				first_line = false;
+				alarm[0] = room_speed*.5;
 				switch (chat) {
 				
 					case GRACE:
@@ -981,7 +1129,8 @@ if show_inventory {
 			if ( instance_exists(o_text) and action_one_pressed_ && alarm[0] <= 0 and skip ) {
 				//create_descripton("Grace is vegetarian", 1 camera_get_view_border_x(view_camera[0])+500, camera_get_view_border_y(view_camera[0]));
 				skip = false;
-				
+				first_line = false;
+				alarm[0] = room_speed*.5;
 				switch (chat) {
 				
 					case GRACE:
@@ -1066,7 +1215,8 @@ if show_inventory {
 				}
 			}*/
 			skip = false;
-			
+			first_line = false;
+			alarm[0] = room_speed*.5;
 			if state.chat {
 				
 				switch (chat) {
@@ -1237,17 +1387,31 @@ switch state_ {
 			break;
 	}
 	break;
-
-
+	
+	case state.inspect:
+	anim_ = anim.idle;
+	switch ( dir_ ) {
+	
+			case face_right:
+			sprite_index = spr_prot;
+			break;
+	
+			case face_left:
+			sprite_index = spr_prot_left;
+			break;
+	}
+	break;
+	
+	
 }
 
 #endregion
 
-if !instance_exists(o_text) and state_ == state.base { 
+/*if !instance_exists(o_text) and state_ == state.base { 
 	state_ = state.base;
 } else if instance_exists(o_text) {
 	state_ = state.chat;
-}
+}*/
 
 #region OLD
 

@@ -13,6 +13,9 @@ global.one_second = room_speed;
 #macro BIZI 4
 #macro DINA 5
 #macro GRACE 6
+#macro WALLYBODY 7
+#macro BUSSTOP 8
+#macro GATE 9
 
 keyboard_set_map(ord("A"), vk_left);
 keyboard_set_map(ord("D"), vk_right);

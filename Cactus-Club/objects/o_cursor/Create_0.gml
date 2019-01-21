@@ -2,3 +2,4 @@
 // You can write your code in this editor
 show_des = 0;
 diag = false;
+inspec = false;

@@ -1,8 +1,8 @@
 {
-    "id": "bdd9d4ba-e1f6-4b70-8be9-db05d9f42985",
+    "id": "2389bba4-1114-4df5-aba3-a91fe0137925",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_dead_body",
+    "name": "o_bus_stop",
     "eventList": [
         
     ],
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "41813765-4d02-4fdf-b381-e75375ea7df7",
+    "spriteId": "7d545c5d-9cf6-4023-8d8d-2a0239984fd9",
     "visible": true
 }

@@ -1,8 +1,8 @@
 {
-    "id": "bdd9d4ba-e1f6-4b70-8be9-db05d9f42985",
+    "id": "70dd2979-0893-4e65-a84c-5320767f5a98",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "o_dead_body",
+    "name": "o_gateToAlley",
     "eventList": [
         
     ],
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "41813765-4d02-4fdf-b381-e75375ea7df7",
-    "visible": true
+    "spriteId": "dc497b79-7e84-44cb-b329-d9a3ba41d35a",
+    "visible": false
 }
