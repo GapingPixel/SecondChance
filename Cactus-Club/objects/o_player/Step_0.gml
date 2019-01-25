@@ -23,7 +23,7 @@ if state_ == state.idle {
 	}
 }
 
-
+///Clues
 #region Wally Corpse 
 
 if action_one && position_meeting(mouse_x, mouse_y, o_dead_body) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_clue_cursor {
@@ -156,6 +156,8 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #endregion
 
+///Chats
+
 #region Intro Chat
 if chat == INTRO {
 	
@@ -222,7 +224,6 @@ if chat == INTRO {
 
 #region Eddyson Chat
 
-
 if action_one && position_meeting(mouse_x, mouse_y, o_Eddyson) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
 	
 	first_line = true;	
@@ -244,11 +245,24 @@ if action_one_pressed_ and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option = 1 and action_one and diagEddyson <= 2 {
 	alarm[0] = room_speed*.5;
-	instance_destroy(o_text,false);
-	state_ = state.base;
-	chat = noone;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagEddyson) {
+	
+		case 1:
+		scr_text("The name is Eddyson, Thomas Eddyson! I sell everyday items for your everyday needs! Buy now, regret later!",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+		o_text.page = 11;
+		break;
+	
+		case 2:
+		scr_text("There was a loud scream, then a thundering crash! The man was dead! But I saw NOTHING!",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+		o_text.page = 15;
+		break;
+	}
+	diagEddyson++;
 } else if o_text.option = 2 and action_one {
 	show_inventory = true;
 } else if o_text.option = 3 and action_one {
@@ -324,6 +338,91 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			o_text.page = PAGE_END;
 			break;
 			
+			
+			#region Diag1
+			case 11:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I have wares that can help people in this time of upheaval! For a cheap fee, you'll be feeling free!",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = 12;
+			break;
+			
+			case 12:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("So, you're here to profit off this man's death.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 13;
+			break;
+			
+			case 13:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("That's a nasty way of putting it. I call my practice SOPE: Service-Oriented Philanthropic Entrepreneurship.",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = 14;
+			break;
+			
+			case 14:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("SOPE? That's a fancy way of saying you want to clean me out.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			#endregion
+			
+			#region Diag2
+			case 15:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Okay.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT_B);
+			alarm[0] = room_speed*.5;
+			o_text.page = 16;
+			break;
+			
+			case 16:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("...but I would have if I were wearing my CrimeBuster Glasses of Omnipresence™! They can be yours for only $19.99! You'll really SEE the difference!",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = 17;
+			break;
+			
+			case 17:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Could I convince you to give me a law enforcement discount?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 18;
+			break;
+			
+			case 18:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("D-discount? In my dictionary, there's nothing between the words Disco and Discovery. I don't plan to fill it with a strange foreign word you just made up!",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = 19;
+			break;
+			
+			case 19:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("So you didn't witness anything and won't sell me the gadget for cheap.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 20;
+			break;
+			
+			case 20:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Wait, ask again and I'll think of something good to have witnessed.",1,view_xport[0]+125,view_yport[0]+250,CHEST_EDDYSON);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			#endregion
+			
 			case PAGE_END:
 			alarm[0] = room_speed*.5;
 			o_text.page = 0;
@@ -354,17 +453,27 @@ if action_one && position_meeting(mouse_x, mouse_y, o_Heather) and ( state_ == s
 
 if chat == HEATHER {
 
-if action_one_pressed_  and !skip {
+if action_one_pressed_ and !skip {
 	o_text.spd = 5;
 	skip = true;
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option = 1 and action_one and diagHeather == 1 {
 	alarm[0] = room_speed*.5;
-	instance_destroy(o_text,false);
-	state_ = state.base;
-	chat = noone;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagHeather) {
+	
+		case 1:
+		scr_text("Name's on the nameplate.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+		o_text.page = 2;
+		diagHeather++
+		break;
+	}
+	
+	
 } else if o_text.option = 2 and action_one {
 	show_inventory = true;
 } else if o_text.option = 3 and action_one {
@@ -398,6 +507,54 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			chat = noone;
 			break;
 			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Heather Mollingue.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 3;
+			break;
+			
+			case 3:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Congrats, you can read.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+			alarm[0] = room_speed*.5;
+			o_text.page = 4;
+			break;
+			
+			case 4:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("What do you think the cause of death is?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 5;
+			break;
+			
+			case 5:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I'll take a wild guess and say the ground.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+			alarm[0] = room_speed*.5;
+			o_text.page = 6;
+			break;
+			
+			case 6:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I'm more asking who are you, not who are you. Get it?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 7;
+			break;
+			
+			case 7:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("No. I'm the building receptionist, not much else to it.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
 		}
 	}
 }
@@ -424,11 +581,25 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option = 1 and action_one and diagStu > 2 {
 	alarm[0] = room_speed*.5;
-	instance_destroy(o_text,false);
-	state_ = state.base;
-	chat = noone;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagStu) {
+	
+		case 1:
+		scr_text("My name is Steven Reynolds, but you can call me Stu. I'm the security guard of this building on weekdays.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
+		o_text.page = PAGE_END;
+		diagStu++
+		break;
+		
+		case 1:
+		scr_text("I was just coming back from my smoke break when the body fell. Gave me a shock. I called the police right away.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
+		o_text.page = PAGE_END;
+		diagStu++
+		break;
+	}
 } else if o_text.option = 2 and action_one {
 	show_inventory = true;
 } else if o_text.option = 3 and action_one {
@@ -488,14 +659,14 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option == 1 and action_one {
 	alarm[0] = room_speed*.5;
 	instance_destroy(o_text,false);
 	state_ = state.base;
 	chat = noone;
-} else if o_text.option = 2 and action_one {
+} else if o_text.option == 2 and action_one {
 	show_inventory = true;
-} else if o_text.option = 3 and action_one {
+} else if o_text.option == 3 and action_one {
 	alarm[0] = room_speed*.5;
 	instance_destroy(o_text,false);
 	state_ = state.base;
@@ -552,14 +723,51 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option == 1 and action_one and diagDina >= 7  {
 	alarm[0] = room_speed*.5;
-	instance_destroy(o_text,false);
-	state_ = state.base;
-	chat = noone;
-} else if o_text.option = 2 and action_one {
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagDina) {
+	
+	case 1:
+	scr_text("The name is Dina Felds, lawyer extraordinaire! Nice to meet you.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	o_text.page = 5;
+	add_people(people.Dina);
+	break;
+	
+	case 2:
+	scr_text("You look a bit tired.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+	o_text.page = 7;
+	break;
+	
+	case 3:
+	scr_text("Thirty years in the force, then ten more as a private investigator. He was passionate about helping people, that's what I loved about him.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	o_text.page = 12;
+	break;
+	
+	case 4:
+	scr_text("This pie is delicious, what's the recipe?",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	o_text.page = 14;
+	break;
+	
+	case 5:
+	scr_text("Sorry I'm just going to need some time…to think about things... gross.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	o_text.page = 18;
+	break;
+	
+	case 6:
+	scr_text("Oh my god! Are you alright?",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+	o_text.page = 20;
+	break;
+	
+	}
+	diagDina++;
+	
+
+} else if o_text.option == 2 and action_one {
 	show_inventory = true;
-} else if o_text.option = 3 and action_one {
+} else if o_text.option == 3 and action_one {
 	alarm[0] = room_speed*.5;
 	instance_destroy(o_text,false);
 	state_ = state.base;
@@ -590,6 +798,7 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			chat = noone;
 			break;
 			
+			//People Grace
 			case 3:
 			alarm[2] = global.one_second*3;
 			instance_destroy(o_text,false);
@@ -598,6 +807,149 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			o_text.page = PAGE_END;
 			break;
 			
+			//Diag 1
+			case 5:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I'm Chance, as you might have heard.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 6;
+			break;
+			
+			case 6:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text(" I didn't. You're a detective? My pop was one as well. Ask me anything!",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//Diag 2
+			case 7:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I sprinted three blocks to get over here as soon as Heather told me about the body.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = 8;
+			break;
+			
+			case 8:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Heather?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 9;
+			break;
+			
+			case 9:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("She's the receptionist, the really pretty one inside?",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = 10;
+			add_people(people.Heather);
+			break;
+			
+			case 10:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You must be the really pretty one outside.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 11;
+			break;
+			
+			case 11:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You're sweet, but maybe don't hit on me in front of a dead body?",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			//End Diag 2//
+			
+			//Diag 3//
+			case 12:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Ever consider joining the force yourself?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case 13:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Too much action and gross stuff. I'll stick to lawyering, thanks.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//Diag 4 
+			case 14:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("First you must befriend an old lady, then find her cat, then she gives you pie.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 15;
+			break;
+			
+			case 15:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You were so close to impressing me, you know.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = 16;
+			break;
+			
+			case 16:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("And then I blew it?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 17;
+			break;
+			
+			case 17:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You blew it.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//Diag 5 
+			case 18:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You're regretting thinking about things.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 19;
+			break;
+			
+			case 19:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Bingo. Excuse me while I try not to vomit again.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//Diag 6
+			case 20:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I'm a bit short of breath, could you kiss my mouth to make me feel better?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 21;
+			break;
+			
+			case 21:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Don't push it just because you're cute.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
 			
 		}
 	}
@@ -625,11 +977,25 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one {
+if o_text.option = 1 and action_one and diagGrace > 4 {
 	alarm[0] = room_speed*.5;
-	instance_destroy(o_text,false);
-	state_ = state.base;
-	chat = noone;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagGrace) {
+	
+		case 1:
+		scr_text("There appear to be no signs of struggle before he hit the ground. The most likely explanation is that it was suicide, but we must still suspect foul play until proof is found that he jumped on his own accord.",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+		o_text.page = PAGE_END;
+		diagGrace = 4;
+		break;
+		
+		case 4:
+		scr_text("So I climbed into the furnace...",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+		o_text.page = 2;
+		diagGrace++
+		break;
+	}
 } else if o_text.option = 2 and action_one {
 	show_inventory = true;
 } else if o_text.option = 3 and action_one {
@@ -654,6 +1020,48 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			alarm[0] = room_speed*2;
 			o_text.page = PAGE_END;
 			break;
+			
+			#region Text 4
+			case 2:
+			alarm[2] = global.one_second*5;
+			instance_destroy(o_text,false);
+			scr_text("You climbed into the furnace?",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*2;
+			o_text.page = 3;
+			break;
+			
+			case 3:
+			alarm[2] = global.one_second*5;
+			instance_destroy(o_text,false);
+			scr_text("Yes, keep up Grace. I went looking in the furnace, and suddenly it all started to heat up. Someone locked me inside the furnace-they were trying to kill me!",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*2;
+			o_text.page = 4;
+			break;
+			
+			case 4:
+			alarm[2] = global.one_second*5;
+			instance_destroy(o_text,false);
+			scr_text("That's pretty ballsy, to do that to a detective like yourself. The perimeter is secured, so we don't have to worry about the perp getting away.",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*2;
+			o_text.page = 5;
+			break;
+			
+			case 5:
+			alarm[2] = global.one_second*5;
+			instance_destroy(o_text,false);
+			scr_text("Show a little concern!",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*2;
+			o_text.page = 6;
+			break;
+			
+			case 6:
+			alarm[2] = global.one_second*5;
+			instance_destroy(o_text,false);
+			scr_text("I'm glad you're okay, Chance, but you're not dead and Wally still is, so get out there and get sleuthing!",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*2;
+			o_text.page = PAGE_END;
+			break;
+			#endregion
 			
 			case PAGE_END:
 			alarm[0] = room_speed*.5;
@@ -1228,15 +1636,7 @@ if show_inventory {
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
 				global.peopleEddyson= true;
-				if o_inventory.people_i[1] == noone {
-					o_inventory.people_i[1] = people.Eddyson;
-				} else if o_inventory.people_i[2] == noone {
-					o_inventory.people_i[2] = people.Eddyson;
-				} else if o_inventory.people_i[3] == noone {
-					o_inventory.people_i[3] = people.Eddyson;
-				} else if o_inventory.people_i[4] == noone {
-					o_inventory.people_i[4] = people.Eddyson;
-				}
+				
 				break;
 				
 				case HEATHER:
@@ -1244,16 +1644,6 @@ if show_inventory {
 				instance_destroy(o_text,false);
 				scr_text("He worked at Rook Law, up on the 6th floor. He's a weird guy. Well, was.",1,view_xport[0]+125,view_yport[0]+250,CHEST_HEATHER);
 				global.peopleHeather = true;
-				if o_inventory.people_i[1] == noone {
-					o_inventory.people_i[1] = people.Heather;
-				} else if o_inventory.people_i[2] == noone {
-					o_inventory.people_i[2] = people.Heather;
-				} else if o_inventory.people_i[3] == noone {
-					o_inventory.people_i[3] = people.Heather;
-				} else if o_inventory.people_i[4] == noone {
-					o_inventory.people_i[4] = people.Heather;
-				}
-				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
 				break;
@@ -1264,15 +1654,6 @@ if show_inventory {
 				scr_text("That fella works in this building. I see him every morning. Don't know much else about him, except I've seen him for years.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
 				//global.grace_pescatarian = true;
 				global.peopleStu = true;
-				if o_inventory.people_i[1] == noone {
-					o_inventory.people_i[1] = people.Stu;
-				} else if o_inventory.people_i[2] == noone {
-					o_inventory.people_i[2] = people.Stu;
-				} else if o_inventory.people_i[3] == noone {
-					o_inventory.people_i[3] = people.Stu;
-				} else if o_inventory.people_i[4] == noone {
-					o_inventory.people_i[4] = people.Stu;
-				}
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
 				break;
@@ -1281,17 +1662,7 @@ if show_inventory {
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
 				scr_text("He is quiet guy, he must be having affair! Or maybe he is government agent!",1,view_xport[0]+125,view_yport[0]+250,CHEST_BIZI);
-				//global.grace_pescatarian = true;
 				global.peopleBizi = true;
-				if o_inventory.people_i[1] == noone {
-					o_inventory.people_i[1] = people.Bizi;
-				} else if o_inventory.people_i[2] == noone {
-					o_inventory.people_i[2] = people.Bizi;
-				} else if o_inventory.people_i[3] == noone {
-					o_inventory.people_i[3] = people.Bizi;
-				} else if o_inventory.people_i[4] == noone {
-					o_inventory.people_i[4] = people.Bizi;
-				}
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
 				break;
@@ -1300,7 +1671,6 @@ if show_inventory {
 				alarm[2] = global.one_second*3;
 				instance_destroy(o_text,false);
 				scr_text("I think maybe I've seen him around here before? ...I got nothing.",1,view_xport[0]+125,view_yport[0]+250,CHEST_DINA);
-				//global.grace_pescatarian = true;
 				alarm[0] = room_speed*.5;
 				o_text.page = PAGE_END;
 				break;

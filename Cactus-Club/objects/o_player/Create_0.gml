@@ -44,3 +44,11 @@ anim_ = anim.idle;
 skip = false;
 
 first_line = true;	
+
+
+///Diag Line Count
+diagDina = 1;
+diagHeather = 1;
+diagEddyson = 1;
+diagStu = 1;
+diagGrace = 1;
