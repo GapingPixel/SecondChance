@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Dialogs
 // You can write your code in this editor
 depth = 10;
 scr_input(global.pad[0]);
@@ -594,7 +594,7 @@ if o_text.option = 1 and action_one and diagStu > 2 {
 		diagStu++
 		break;
 		
-		case 1:
+		case 2:
 		scr_text("I was just coming back from my smoke break when the body fell. Gave me a shock. I called the police right away.",1,view_xport[0]+125,view_yport[0]+250,CHEST_REYNOLDS);
 		o_text.page = PAGE_END;
 		diagStu++
@@ -723,7 +723,7 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option == 1 and action_one and diagDina >= 7  {
+if o_text.option == 1 and action_one and diagDina <= 7  {
 	alarm[0] = room_speed*.5;
 	alarm[2] = global.one_second*3;
 	if instance_exists(o_text) then instance_destroy(o_text,false);
@@ -977,7 +977,7 @@ if action_one_pressed_  and !skip {
 	alarm[1] = room_speed*.5;
 }
 
-if o_text.option = 1 and action_one and diagGrace > 4 {
+if o_text.option = 1 and action_one and diagGrace <= 4 {
 	alarm[0] = room_speed*.5;
 	alarm[2] = global.one_second*3;
 	if instance_exists(o_text) then instance_destroy(o_text,false);
@@ -1062,6 +1062,187 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 			o_text.page = PAGE_END;
 			break;
 			#endregion
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+}
+
+#endregion
+
+#region Carrie Chat
+if action_one && position_meeting(mouse_x, mouse_y, o_Carrie) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	state_ = state.chat;
+	scr_text("    >Talk                     >Interact                          >Nevermind         ",5,view_xport[0]+125,view_yport[0]+250,CHEST_CARRIE);
+	alarm[2] = global.one_second*1;
+	o_text.page = PAGE_END;
+	chat = CARRIE;
+}
+
+if chat == CARRIE {
+
+if action_one_pressed_  and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+
+if o_text.option = 1 and action_one and diagCarrie <= 2 {
+	alarm[0] = room_speed*.5;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagCarrie) {
+	
+		case 1:
+		scr_text("I'm Carrie Rhodes. I work here, 'nuff said.",1,view_xport[0]+125,view_yport[0]+250,CHEST_CARRIE);
+		o_text.page = 2;
+		diagCarrie++
+		break;
+		
+		case 2:
+		scr_text("Me? I was polishing my gun while waiting for this whole mess to clear up, so I can get outta this dump.",1,view_xport[0]+125,view_yport[0]+250,CHEST_CARRIE);
+		o_text.page = 4;
+		diagCarrie++
+		break;
+	}
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("That doesn't tell me very much about you.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 3;
+			break;
+			
+			case 3:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Good, 'cause that's the intention.",1,view_xport[0]+125,view_yport[0]+250,CHEST_CARRIE);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//Diag2
+			case 4:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text(" You mind if I take a look at it?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 5;
+			break;
+			
+			case 5:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I do mind. I've been wiping 'er clean from my last outing, and I don't need your dirty little hands all over 'er.",1,view_xport[0]+125,view_yport[0]+250,CHEST_CARRIE);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+}
+
+#endregion
+
+#region Chase Chat
+if action_one && position_meeting(mouse_x, mouse_y, o_Chase) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	state_ = state.chat;
+	scr_text("    >Talk                     >Interact                          >Nevermind         ",5,view_xport[0]+125,view_yport[0]+250,CHEST_CHASE);
+	alarm[2] = global.one_second*1;
+	o_text.page = PAGE_END;
+	chat = CHASE;
+}
+
+if chat == CHASE {
+
+if action_one_pressed_  and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+
+if o_text.option = 1 and action_one and diagChase <= 2 {
+	alarm[0] = room_speed*.5;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagChase) {
+	
+		case 1:
+		scr_text("My name is Chase Tauropolous. Mouthful, I know. I'm the highest performing monkey here. I'm also a pro with the rifle. Basically, I'm awesome.",1,view_xport[0]+125,view_yport[0]+250,CHEST_CHASE);
+		o_text.page = PAGE_END;
+		diagChase++
+		break;
+		
+		case 2:
+		scr_text("Yeah, fell down a flight of stairs yesterday. It got real ugly. Wanna sign my cast?",1,view_xport[0]+125,view_yport[0]+250,CHEST_CHASE);
+		o_text.page = 2;
+		diagChase++
+		break;
+	}
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I'll pass.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
 			
 			case PAGE_END:
 			alarm[0] = room_speed*.5;

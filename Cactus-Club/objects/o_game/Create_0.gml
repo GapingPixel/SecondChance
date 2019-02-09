@@ -16,6 +16,12 @@ global.one_second = room_speed;
 #macro WALLYBODY 7
 #macro BUSSTOP 8
 #macro GATE 9
+#macro CARRIE 10
+#macro YASMIN 11
+#macro HAROLD 12
+#macro URSULA 13
+#macro DUNCAN 14
+#macro CHASE 15
 
 keyboard_set_map(ord("A"), vk_left);
 keyboard_set_map(ord("D"), vk_right);

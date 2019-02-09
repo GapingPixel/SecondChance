@@ -67,6 +67,26 @@ switch (character) {
 	case CHEST_BIZI:
 	name = "    Bizi"
 	break;
+	
+	case CHEST_CARRIE:
+	name = "  Carrie"
+	break;
+	
+	case CHEST_CHASE:
+	name = "  Chase"
+	break;
+	
+	case CHEST_HAROLD:
+	name = "Harold"
+	break;
+	
+	case CHEST_URSULA:
+	name = "Ursula"
+	break;
+	
+	case CHEST_DUNCAN:
+	name = " Duncan"
+	break;
 }
 
 //draw_set_halign(fa_center);

@@ -26,9 +26,12 @@ option = noone;
 #macro CHEST_COP s_chest_Cop
 #macro CHEST_DINA s_chest_Dina
 #macro CHEST_REYNOLDS s_chest_Reynolds
-
-
-
+#macro CHEST_CARRIE s_chest_Carrie
+#macro CHEST_HAROLD s_chest_Harold
+#macro CHEST_YASMIN s_chest_Yasmin
+#macro CHEST_CHASE  s_chest_Chase
+#macro CHEST_URSULA s_chest_Ursula
+#macro CHEST_DUNCAN s_chest_Duncan
 
 
 

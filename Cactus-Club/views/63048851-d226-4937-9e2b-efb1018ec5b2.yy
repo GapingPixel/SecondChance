@@ -14,7 +14,14 @@
         "a93a00ea-ed56-4d10-a24a-d60cf31b4a9d",
         "5b9be13f-30ec-497f-b277-d960d322e431",
         "ff3bc1d5-db02-4187-939d-6c40deb49768",
-        "f32e7edd-380d-425b-b8f3-ae9cb0f98e05"
+        "f32e7edd-380d-425b-b8f3-ae9cb0f98e05",
+        "515b13c1-0d24-48ad-a5ac-1f3ae67c3c55",
+        "07f42b00-00d2-4f3b-a93c-d9a1f410e5a9",
+        "1824a785-0131-4d0f-a3b5-0fae9d31e759",
+        "1004fd76-b681-4248-b824-b0cfdb3a8593",
+        "dad5bfb2-57ed-4ad0-b9a3-a3c41991d073",
+        "1e0c2fb7-f658-4d19-9aab-74e78f6243a2",
+        "846104e1-4214-4c4c-a655-9c75a512c38d"
     ],
     "filterType": "GMSprite",
     "folderName": "Chest",
