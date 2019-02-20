@@ -815,6 +815,14 @@
             }
         },
         {
+            "Key": "78bf0db2-fdfc-4649-a5a0-072b34c15f6b",
+            "Value": {
+                "id": "9a3d1bb8-a66e-476d-9cc1-50eaeea3aa50",
+                "resourcePath": "scripts\\people_text\\people_text.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7b6d6f90-f914-4022-85ff-fd20e5511683",
             "Value": {
                 "id": "70be2c5d-732e-4152-aec6-a43a62d09f23",
@@ -1116,6 +1124,14 @@
                 "id": "7430cb74-177f-469e-b3b1-1afb46197f0a",
                 "resourcePath": "fonts\\fn_10\\fn_10.yy",
                 "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "ae9b56dd-f594-4ef0-9dba-242314068c60",
+            "Value": {
+                "id": "96c2df76-aae2-48a4-aeb3-5e1e5136fcef",
+                "resourcePath": "scripts\\people_description\\people_description.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1716,7 +1732,9 @@
         "e17afa65-eced-45f4-9937-e9a8be00d89f",
         "18a2407a-8d83-49fa-ae02-a9f2aecc825b",
         "b26285e2-e305-4e52-8ad9-d151025ba13e",
-        "bbe1b1e5-16e4-4724-b22c-374f4cbdd0df"
+        "bbe1b1e5-16e4-4724-b22c-374f4cbdd0df",
+        "78bf0db2-fdfc-4649-a5a0-072b34c15f6b",
+        "ae9b56dd-f594-4ef0-9dba-242314068c60"
     ],
     "tutorial": ""
 }
