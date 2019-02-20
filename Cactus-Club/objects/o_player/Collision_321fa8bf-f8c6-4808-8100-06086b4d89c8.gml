@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 //global.player_start_position = other.start_;
-if (action_one) {
+if (action_one and state_ == state.base) {
 	persistent = true;
 	global.player_start_position = other.start_;
 	room_goto(other.room_);

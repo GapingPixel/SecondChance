@@ -5,6 +5,7 @@ instance_create_depth(mouse_x,mouse_y,-9999,o_cursor);
 global.inventory_page = 1;
 global.grace_pescatarian = false;
 global.one_second = room_speed;
+global.bizi_block_ = true;
 #macro PAGE_END -1
 #macro INTRO 0
 #macro EDDYSON 1
