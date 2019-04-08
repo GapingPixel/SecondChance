@@ -695,6 +695,14 @@
             }
         },
         {
+            "Key": "6761512a-4f28-4ffd-9921-451beeb16804",
+            "Value": {
+                "id": "7e374ac3-1940-4936-ad5a-7c4cec32846d",
+                "resourcePath": "objects\\o_watercooler\\o_watercooler.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "67bfd6b8-2bfd-4ced-be6e-6ac38294e214",
             "Value": {
                 "id": "d3808682-52d0-42f9-bdec-47720adb4405",
@@ -1244,6 +1252,14 @@
                 "id": "a863bdad-e229-4097-b879-55409af8ef95",
                 "resourcePath": "scripts\\add_people\\add_people.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "bca3ac24-75be-428c-b107-1d0cba203b4c",
+            "Value": {
+                "id": "55ecdacd-df4d-4a0b-9713-6ca79e3edb33",
+                "resourcePath": "objects\\o_coop2\\o_coop2.yy",
+                "resourceType": "GMObject"
             }
         },
         {

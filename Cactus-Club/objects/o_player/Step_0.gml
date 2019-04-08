@@ -1800,6 +1800,192 @@ switch state_ {
 
 
 
+#region Cop 1
+
+if action_one && position_meeting(mouse_x, mouse_y, o_coop) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	
+	first_line = true;	
+	state_ = state.chat;
+	scr_text("You know, some people have a lot to say, so it's worth talking to them a lot. Even if it's about the same thing.",5,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+	draw_sprite(s_arrow_select1,0,view_xport[0]+125,view_yport[0]+250);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = 1;
+	chat = COP;
+}
+
+if chat == COP {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;	
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			
+			case 1:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You can't help me at all with the case, can you?",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 2;
+			break;
+			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("No, but we can talk about my pog collection!",1,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+			
+		}
+}
+}
+#endregion
+
+#region Cop 2
+
+if action_one && position_meeting(mouse_x, mouse_y, o_coop2) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	
+	first_line = true;	
+	state_ = state.chat;
+	scr_text("Most people like free food. I'd gather if you gave someone free food, they would be happy.",5,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+	draw_sprite(s_arrow_select1,0,view_xport[0]+125,view_yport[0]+250);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = 1;
+	chat = COP;
+}
+
+if chat == COP {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;	
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			
+			case 1:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("You've got it all figured out.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 2;
+			break;
+			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I know.",1,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+			
+		}
+}
+}
+#endregion
+
+#region WaterCooler
+
+if action_one && position_meeting(mouse_x, mouse_y, o_coop2) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	
+	first_line = true;	
+	state_ = state.chat;
+	scr_text("Hey baby, come here often?",5,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+	draw_sprite(s_arrow_select1,0,view_xport[0]+125,view_yport[0]+250);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = 1;
+	chat = WATERCOOL;
+}
+
+if chat == WATERCOOL {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;	
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			
+			case 1:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("…",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = 2;
+			break;
+			
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Yeah, me neither.",1,view_xport[0]+125,view_yport[0]+250,CHEST_COP);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+			
+		}
+}
+}
+#endregion
+
 /*if !instance_exists(o_text) and state_ == state.base { 
 	state_ = state.base;
 } else if instance_exists(o_text) {
