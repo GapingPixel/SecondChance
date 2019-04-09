@@ -2,6 +2,8 @@
 // You can write your code in this editor
 draw_self();
 
+if o_player.state_ != state.chat then instance_destroy();
+
 if ( time < text_length ) {
 	time += spd;
 	print = string_copy(text,0,time);

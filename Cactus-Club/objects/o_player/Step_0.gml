@@ -3,6 +3,11 @@
 depth = 10;
 scr_input(global.pad[0]);
 
+if o_player.state_ != state.chat { 
+	instance_destroy(o_text,false);
+	chat = noone;
+}
+
 var hinput = right - left;
 if hinput != 0 {
 	//alarm[3] = room_speed*4; //hspeed_ += hinput*accelation_;
@@ -1528,7 +1533,7 @@ if show_inventory {
 					
 				}
 			
-				show_inventory = false;
+				//show_inventory = false; Bug
 			}
 	
 		}
