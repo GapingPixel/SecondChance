@@ -58,3 +58,4 @@ diagUrsula = 1;
 diagDuncan = 1;
 diagYasmin = 1;
 diagHarold = 1;
+diagWendy = 1;

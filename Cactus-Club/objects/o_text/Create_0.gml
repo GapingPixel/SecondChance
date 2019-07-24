@@ -32,7 +32,7 @@ option = noone;
 #macro CHEST_CHASE  s_chest_Chase
 #macro CHEST_URSULA s_chest_Ursula
 #macro CHEST_DUNCAN s_chest_Duncan
-
+#macro CHEST_WENDY s_chest_Wendy
 
 
 //spd = 4;

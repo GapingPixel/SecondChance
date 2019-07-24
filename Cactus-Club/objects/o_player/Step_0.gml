@@ -80,7 +80,56 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 
 #endregion
 
+#region Disembodied voice
 
+if action_one && position_meeting(mouse_x, mouse_y, o_dead_body) and (state_ == state.base or state_ == state.idle )  && alarm[0] <= 0 and cursor_sprite  == s_clue_cursor {
+	
+	state_ = state.inspect;
+	scr_text("Not much I can tell by just looking at the guy.",5,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+	alarm[2] = global.one_second*3;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	o_text.page = 1;
+	chat = WALLYBODY;
+}
+
+if chat == WALLYBODY {
+
+if action_one_pressed_ and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		
+		switch (o_text.page) {
+			
+			
+			case 1:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Try asking around to find out more about him.",1,view_xport[0]+125,view_yport[0]+250,CHEST_GRACE);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+
+
+}
+
+#endregion
 
 #region Bus Stop
 
@@ -1323,6 +1372,130 @@ if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <
 }
 
 #endregion
+
+#region Wendy Chat
+if action_one && position_meeting(mouse_x, mouse_y, o_Wendy) and ( state_ == state.base or state_ == state.idle ) && alarm[0] <= 0 and cursor_sprite  == s_dialogue_hover {
+	first_line = true;
+	skip = false;
+	alarm[0] = room_speed*.5;
+	state_ = state.chat;
+	scr_text("    >Talk                     >Interact                          >Nevermind         ",5,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+	alarm[2] = global.one_second*1;
+	o_text.page = PAGE_END;
+	chat = WENDY;
+}
+
+if chat == WENDY {
+
+if action_one_pressed_  and !skip {
+	o_text.spd = 5;
+	skip = true;
+	alarm[1] = room_speed*.5;
+}
+
+if o_text.option = 1 and action_one and diagWendy <= 3 {
+	alarm[0] = room_speed*.5;
+	alarm[2] = global.one_second*3;
+	if instance_exists(o_text) then instance_destroy(o_text,false);
+	//Diag 1 
+	switch (diagWendy) {
+	
+		case 1:
+		scr_text("My name is Wendy Cullridge-Gant. I intern here.",1,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+		o_text.page = 2;
+		diagWendy++
+		add_people(people.Wendy);
+		break;
+		
+		case 2:
+		scr_text("Jon didn't finish his homework here",1,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+		o_text.page = PAGE_END;
+		diagWendy++
+		break;
+		
+		case 3:
+		scr_text("I don't understand why people are poor. They should just look hot and people will give them free things.",1,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+		o_text.page = 4;
+		diagWendy++
+		break;
+	}
+} else if o_text.option = 2 and action_one {
+	show_inventory = true;
+} else if o_text.option = 3 and action_one {
+	alarm[0] = room_speed*.5;
+	instance_destroy(o_text,false);
+	state_ = state.base;
+	chat = noone;
+}
+	
+if instance_exists(o_text) and action_one_pressed_ and mouse_y>270 && alarm[0] <= 0 and skip {
+		skip = false;
+		first_line = false;
+		switch (o_text.page) {
+			case 0:
+			
+			break;
+			//tALK 1
+			case 2:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I can already tell you're going to be no help.",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case 3:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I can already tell someone is going to slap you in the face soon.",1,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			//tALK 2
+			
+			//tALK 3
+			case 4:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("I don't think it works like that...",1,view_xport[0]+125,view_yport[0]+250,CHEST_PROT);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case 5:
+			alarm[2] = global.one_second*3;
+			instance_destroy(o_text,false);
+			scr_text("Have you ever seen a hot poor person?",1,view_xport[0]+125,view_yport[0]+250,CHEST_WENDY);
+			alarm[0] = room_speed*.5;
+			o_text.page = PAGE_END;
+			break;
+			
+			case PAGE_END:
+			alarm[0] = room_speed*.5;
+			o_text.page = 0;
+			instance_destroy(o_text,false);
+			state_ = state.base;
+			chat = noone;
+			break;
+			
+		}
+	}
+}
+
+#endregion
+
+//Duncan
+
+//Harold
+
+//PeterPodd
+
+//RookPalmer
+
+//Ursula
+
+
 
 #region Inventory
 if inventory and chat != INTRO {

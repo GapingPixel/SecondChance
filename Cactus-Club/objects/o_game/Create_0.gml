@@ -26,6 +26,7 @@ global.bizi_block_ = true;
 #macro COP 16
 #macro COP2 17
 #macro WATERCOOL 18
+#macro WENDY 19
 
 keyboard_set_map(ord("A"), vk_left);
 keyboard_set_map(ord("D"), vk_right);

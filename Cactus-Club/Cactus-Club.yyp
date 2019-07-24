@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "037f6c76-caf2-43a7-88fe-ec4a043d877a",
+            "Value": {
+                "id": "b652d94a-a1e1-44ea-83e9-d1be1e115565",
+                "resourcePath": "sprites\\s_wendy\\s_wendy.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "04129d72-3f67-4e43-963b-f2d9e41c7a6a",
             "Value": {
                 "id": "0f53f73f-423e-44a4-b2e2-276ad9959866",
@@ -540,6 +548,14 @@
                 "id": "5a6201b7-078b-43e2-a530-6e04f44d1aa0",
                 "resourcePath": "sprites\\s_chest_Heather\\s_chest_Heather.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5370d7f9-82d6-4576-8d69-82c6ea2580fb",
+            "Value": {
+                "id": "bb0d47ee-3b08-4894-b847-971da4ce1646",
+                "resourcePath": "objects\\o_Wendy\\o_Wendy.yy",
+                "resourceType": "GMObject"
             }
         },
         {

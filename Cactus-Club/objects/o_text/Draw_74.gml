@@ -89,6 +89,10 @@ switch (character) {
 	case CHEST_DUNCAN:
 	name = " Duncan"
 	break;
+	
+	case CHEST_WENDY:
+	name = " Wendy"
+	break;
 }
 
 //draw_set_halign(fa_center);
